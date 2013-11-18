@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+table = {}; n = 0
+STDIN.chars.map(&:downcase).each do |c|
+  next unless 'a' <= c && c <= 'z'
+  table[c] = table.fetch(c,0) + 1; n += 1
+end
+table.to_a.sort_by { |k,v| v } .reverse.each do |k,v|
+  puts "#{k} => #{v}/#{n} (#{1.0*v/n})"
+end
