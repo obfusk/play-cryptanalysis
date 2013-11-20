@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+a = ARGV[0].to_i
+b = ARGV[1].to_i
+f = -> x { ((a * (x.ord - 'a'.ord) + b) % 26 + 'a'.ord).chr }
+STDIN.chars.map(&:downcase).each do |c|
+  print ('a' <= c && c <= 'z' ? f[c] : c)
+end
